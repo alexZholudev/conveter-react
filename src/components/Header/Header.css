@@ -1,0 +1,158 @@
+.header {
+    border-bottom: 1px solid var(--light)
+}
+
+.header.active {
+    --color: var(--white)
+}
+
+.header_net {
+    grid-gap: 40px
+}
+
+.header_left {
+    grid-gap: 40px;
+    padding: 30px 0
+}
+
+.header_right {
+    --btn_height: 52px;
+    --btn_inner: 24px;
+    --btn_font: 16px;
+    grid-gap: 16px
+}
+
+.header:not(.active) .header_logo {
+    --color: var(--blue)
+}
+
+/*[class*=__btn] {*/
+/*    --color: var(--btn_color);*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    grid-gap: 24px;*/
+/*    position: relative;*/
+/*    min-width: min(var(--btn_w), 100%);*/
+/*    height: var(--btn_height);*/
+/*    padding: 0 var(--btn_inner);*/
+/*    font-size: var(--btn_font);*/
+/*    text-align: center;*/
+/*    line-height: calc(var(--btn_height) - var(--btn__lh));*/
+/*    background-color: var(--btn_bg);*/
+/*    border-radius: 10px;*/
+/*    cursor: pointer;*/
+/*    transition: background-color .43s, color .43s*/
+/*}*/
+
+.header_logo {
+    position: relative;
+    max-width: 146px;
+    height: 52px;
+    z-index: 999999
+}
+
+.header_logo svg {
+    height: 100%;
+}
+
+.header_logo path {
+    transition: fill .43s
+}
+
+.header_nav {
+    grid-gap: 42px
+}
+
+.coming-soon {
+    display: none;
+}
+
+.coming-soon-active {
+    display: block;
+    animation: __bounceOutDown .43s linear;
+}
+
+.header_nav_li {
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: color .43s
+}
+
+.header_nav_li:hover {
+    --color: var(--blue)
+}
+
+.header_btn {
+    position: relative
+}
+
+.header_btn p {
+    --color: var(--blue);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase
+}
+
+@media only screen and (max-width: 1600px) {
+    .header_left {
+        grid-gap: 100px
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .header_nav {
+        grid-gap: 20px
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .header_left {
+        grid-gap: 40px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .header_logo {
+        max-width: 84px;
+        height: auto;
+    }
+
+    .header_btn p {
+        font-size: 12px;
+        margin-top: 0
+    }
+
+    [class*=__btn] {
+        --btn_height: 40px;
+        --btn_inner: 12px;
+        --btn_font: 16px
+    }
+
+    .header_net {
+        grid-gap: 20px;
+    }
+
+    .header_left {
+        padding: 20px 0;
+    }
+}
+
+
+@keyframes __bounceOutDown {
+    0% {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

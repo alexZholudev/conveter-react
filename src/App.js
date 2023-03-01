@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import './index.css';
+import Header from './components/Header';
+import {Footer} from "./components/Footer/Footer";
+import {Main} from "./components/Main/Main";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    // useEffect(() => {
+    //     const block = document.body;
+    //     const indicator = document.createElement('div');
+    //     block.append(indicator);
+    //     const w1 = block.offsetWidth;
+    //     // block.style.overflowY = 'scroll';
+    //     const w2 = block.offsetWidth;
+    //     block.removeChild(indicator);
+    //     const scrollbar = w1 - w2;
+    //     document.documentElement.style.setProperty('--scroll', `${scrollbar}px`);
+    // }, []);
+
+
+
+    return (
+        <div className="App">
+            <Header />
+            <Main/>
+            <Footer/>
+        </div>
+    );
 }
 
 export default App;

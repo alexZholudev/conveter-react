@@ -1,0 +1,41 @@
+.exchange_btn {
+    justify-self: end;
+    grid-column: 3/4;
+    margin-top: 31px
+}
+
+/*[class*=__btn] {*/
+/*    --color: var(--btn_color);*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    grid-gap: 24px;*/
+/*    position: relative;*/
+/*    min-width: min(var(--btn_w), 100%);*/
+/*    height: var(--btn_height);*/
+/*    padding: 0 var(--btn_inner);*/
+/*    font-size: var(--btn_font);*/
+/*    text-align: center;*/
+/*    line-height: calc(var(--btn_height) - var(--btn__lh));*/
+/*    background-color: var(--btn_bg);*/
+/*    border-radius: 10px;*/
+/*    cursor: pointer;*/
+/*    transition: background-color .43s, color .43s*/
+/*}*/
+
+/*[class*=__btn] span {*/
+/*    transition: color .43s*/
+/*}*/
+
+/*[class*=__btn] path {*/
+/*    transition: fill .43s*/
+/*}*/
+
+/*[class*=__btn]:hover {*/
+/*    --color: var(--white);*/
+/*    background-color: var(--black)*/
+/*}*/
+
+/*.__btn-blue {*/
+/*    --color: var(--white);*/
+/*    background-color: var(--blue)*/
+/*}*/

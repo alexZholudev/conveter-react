@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import './Header.css';
+import {BurgerMenu} from "../BurgerMenu/Index";
 
 const Header = () => {
+    const [isMenu, setMenu] = useState(false);
+    const comingSoonRef = useRef(null);
+    const headerRef = useRef(null);
+    const [headerHeight, setHeaderHeight] = useState(10);
+    const clickHandler = () => {
+        comingSoonRef.current.classList.add('coming-soon-active');
+    }
+    useEffect(() => {
+        if (headerRef.current !== null){
+            setHeaderHeight(headerRef.current.clientHeight);
+        }
+    }, []);
+    console.log(headerHeight)
     return (
-        <header className="header">
+        <header ref={headerRef} className={`header ${isMenu ? "active" : ""}`}>
             <div className="bone">
                 <div className="header_net __flex-center">
                     <div className="header_left __flex-align">
@@ -27,30 +42,24 @@ const Header = () => {
                             </svg>
                         </a>
                         <div className="header_nav __flex-align">
-                            <a href="/exchange.html" className="header_nav_li">Exchange</a>
+                            <a href="/exchange.html" className="header_nav_li">Home</a>
                         </div>
                     </div>
                     <div className="header_right __flex-align">
-                        <div className="header_btn">
-                            <div className="__btn-blue" onClick="$('#comming').fadeIn()">Launch App</div>
-                            <p id="comming" style="display: none;">coming soon</p>
+                        <div className="header_btn" onClick={clickHandler}>
+                            <div className="__btn-blue"> Launch App</div>
+                            <p className="coming-soon" ref={comingSoonRef}>Coming Soon</p>
                         </div>
                         <div className="bar">
-                            <div className="bar_veil" onClick="bar_close()"></div>
-                            <div className="bar_burger" onClick="bar_toggle()">
+                            <div className={`bar_burger${isMenu ? " active" : ""}`}
+                                 onClick={() => setMenu(prev => !prev)}>
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
-                            <div className="bar_wrapper">
-                                <div className="bar_net __flex">
-                                    <div className="bar_nav">
-                                        <a href="/exchange.html" className="bar_nav_li">Exchange</a>
-
-                                    </div>
-                                </div>
-                            </div>
+                            <BurgerMenu heightH={headerHeight} isOpen={isMenu} close={() => setMenu(false)}/>
                         </div>
+
                     </div>
                 </div>
             </div>

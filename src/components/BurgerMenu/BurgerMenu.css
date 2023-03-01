@@ -1,0 +1,122 @@
+.bar {
+    z-index: 99999;
+    display: none;
+}
+
+.bar_burger {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 32px;
+    margin: -10px -8px;
+    padding: 10px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 20;
+    transition: background .43s, transform .43s
+}
+
+.bar_burger.active:hover {
+    transform: scale(1.2)
+}
+
+.bar_burger span {
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--color);
+    transition: transform .43s, opacity .43s, background-color .43s
+}
+
+.bar_burger.active span:nth-child(1) {
+    transform: rotate(50grad) translate3d(3px, 4px, 0)
+}
+
+.bar_burger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-100%)
+}
+
+.bar_burger.active span:nth-child(3) {
+    transform: rotate(-50grad) translate3d(4px, -4px, 0)
+}
+
+.bar_wrapper {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 100vh;
+    animation: linear .43s __slideInDown;
+    background-color: var(--blue);
+    z-index: -1
+}
+
+.bar-anim{
+    animation: linear .43s __slideInUp;
+}
+
+.bar_net {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: scroll;
+    width: calc(100% + 40px);
+    height: 100%;
+    max-height: 100vh;
+    margin-right: -40px;
+    padding: var(--bone) calc(var(--bone) + 40px - var(--scroll)) calc(var(--bone) * 2) var(--bone);
+}
+
+.bar_nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    flex-grow: 1;
+    grid-gap: 42px;
+}
+
+.bar_nav_li {
+    font-size: 32px;
+    text-transform: uppercase;
+    transition: color .43s
+}
+
+@media only screen and (max-width: 1030px) {
+    .bar {
+        display: block;
+    }
+}
+
+@keyframes __slideInDown {
+    0% {
+        transform: translateY(-120%);
+        opacity: 0;
+        max-height: 0;
+        vivisibility: hidden;
+    }
+    100% {
+        transform: translateY(0);
+        max-height: 100%;
+        vivisibility: visible;
+        opacity: 1
+    }
+}
+
+@keyframes __slideInUp {
+    0% {
+        transform: translateY(0);
+        max-height: 100%;
+        vivisibility: visible;
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120%);
+        opacity: 0;
+        max-height: 0;
+        vivisibility: hidden;
+    }
+}

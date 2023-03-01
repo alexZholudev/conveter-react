@@ -1,38 +1,177 @@
-.App {
-  text-align: center;
+[class*=__btn] {
+    --color: var(--btn_color);
+    display: inline-flex;
+    align-items: center;
+    grid-gap: 24px;
+    position: relative;
+    min-width: min(var(--btn_w), 100%);
+    height: var(--btn_height);
+    padding: 0 var(--btn_inner);
+    font-size: var(--btn_font);
+    text-align: center;
+    line-height: calc(var(--btn_height) - var(--btn__lh));
+    background-color: var(--btn_bg);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color .43s, color .43s
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+[class*=__btn] span {
+    transition: color .43s
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+[class*=__btn] path {
+    transition: fill .43s
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+[class*=__btn]:hover {
+    --color: var(--white);
+    background-color: var(--black)
 }
 
-.App-link {
-  color: #61dafb;
+.__btn-blue {
+    --color: var(--white);
+    background-color: var(--blue)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input {
+    display: block;
+    position: relative
+}
+
+input:not([type=checkbox],[type=radio],[type=submit],[type=range]) {
+    width: 100%;
+    min-height: 77px;
+    padding: 0 24px;
+    font-size: var(--body);
+    text-overflow: ellipsis;
+    border: 1px solid var(--light);
+    background-color: var(--white);
+    border-radius: 10px;
+    transition: border-color .43s
+}
+
+input:not([type=checkbox],[type=radio],[type=submit],[type=range]):focus, input:not([type=checkbox],[type=radio],[type=submit],[type=range]):hover {
+    border-color: var(--blue)
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+input[type=number] {
+    -moz-appearance: textfield
+}
+
+.__input_hidden {
+    width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border: 0 none !important;
+    opacity: 0;
+    z-index: -1
+}
+
+._error input, ._error textarea {
+    --color: var(--red) !important;
+    border-color: var(--red) !important
+}
+
+._error .error_text {
+    display: block
+}
+
+.error_text {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    color: var(--white);
+    padding: 0 18px;
+    font-weight: 400;
+    line-height: 41px;
+    background-color: var(--red);
+    border-radius: 10px;
+    z-index: 1
+}
+
+
+.__anim {
+    opacity: 0;
+    transition: transform .83s, opacity .83s
+}
+
+.__anim._slide-x {
+    transform: translate3d(-100%, 0, 0)
+}
+
+.__anim._slide-y {
+    transform: translate3d(0, 200px, 0)
+}
+
+.__anim._anim_act {
+    opacity: 1;
+    transform: translate3d(0, 0, 0)
+}
+
+
+@media only screen and (max-width: 1600px) {
+    :root {
+        --bone: 40px
+    }
+
+    :root {
+        --body: 18px
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    :root {
+        --h1: 32px;
+        --body: 16px
+    }
+
+    :root {
+        --inner_g: 24px
+    }
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .header_left {
+        grid-gap: 40px
+    }
+
+    .header_nav {
+        grid-gap: 12px
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .header_nav {
+        display: none
+    }
+
+    .bar {
+        display: block
+    }
+
+    .footer_nav {
+        grid-gap: 16px
+    }
+
+    .footer_cop, .footer_nav_li {
+        font-size: 14px
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        --h1: 24px;
+        --bone: 20px
+    }
 }

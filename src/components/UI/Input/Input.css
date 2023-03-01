@@ -1,0 +1,67 @@
+.exchange_input {
+    margin-top: 28px
+}
+
+.input {
+    display: block;
+    position: relative
+}
+
+input:not([type=checkbox],[type=radio],[type=submit],[type=range]) {
+    width: 100%;
+    min-height: 77px;
+    padding: 0 24px;
+    font-size: var(--body);
+    text-overflow: ellipsis;
+    border: 1px solid var(--light);
+    background-color: var(--white);
+    border-radius: 10px;
+    transition: border-color .43s
+}
+
+input:not([type=checkbox],[type=radio],[type=submit],[type=range]):focus, input:not([type=checkbox],[type=radio],[type=submit],[type=range]):hover {
+    border-color: var(--blue)
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+input[type=number] {
+    -moz-appearance: textfield
+}
+
+.__input_hidden {
+    width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border: 0 none !important;
+    opacity: 0;
+    z-index: -1
+}
+
+._error input, ._error textarea {
+    --color: var(--red) !important;
+    border-color: var(--red) !important
+}
+
+._error .error_text {
+    display: block
+}
+
+.error_text {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    color: var(--white);
+    padding: 0 18px;
+    font-weight: 400;
+    line-height: 41px;
+    background-color: var(--red);
+    border-radius: 10px;
+    z-index: 1
+}
